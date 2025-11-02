@@ -19,10 +19,11 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       aria-label="Toggle theme"
+      className="text-gray-300 hover:text-white hover:bg-gray-800"
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
     >
-      <Sun className="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <Sun className="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-gray-300 dark:text-gray-400" />
+      <Moon className="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-gray-300 dark:text-white" />
       <span className="sr-only">Toggle theme</span>
       {!mounted && <span className="sr-only">Theme toggle</span>}
     </Button>

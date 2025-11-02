@@ -76,13 +76,13 @@ export function TrendingCarousel() {
   }, [startAnimation]);
 
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl dark:bg-zinc-950/60">
+    <section className="rounded-3xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-lg">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
             Live trending products
           </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Curated by the commerce AI from real-time demand signals.
           </p>
         </div>
@@ -118,15 +118,15 @@ interface TrendingCardProps {
 function TrendingCard({ name, category, price, image, priority }: TrendingCardProps) {
   return (
     <motion.article
-      className="group relative flex h-64 w-72 shrink-0 flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/80 p-4 text-white shadow-xl"
+      className="group relative flex h-64 w-72 shrink-0 flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 shadow-lg hover:shadow-xl transition-shadow"
       whileHover={{ rotateX: -6, rotateY: 6, translateY: -12 }}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
     >
-      <div className="flex items-center justify-between text-xs text-blue-200/80">
-        <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-2 py-0.5 uppercase tracking-wide">
+      <div className="flex items-center justify-between text-xs text-orange-600 dark:text-orange-400">
+        <span className="rounded-full border border-orange-500/30 bg-orange-500/10 dark:bg-orange-900/30 px-2 py-0.5 uppercase tracking-wide">
           Live
         </span>
-        <span>{category}</span>
+        <span className="text-gray-600 dark:text-gray-400">{category}</span>
       </div>
 
       <div className="relative mt-6 flex flex-1 items-center justify-center">
@@ -142,12 +142,12 @@ function TrendingCard({ name, category, price, image, priority }: TrendingCardPr
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-lg font-semibold leading-tight">{name}</h3>
-        <div className="flex items-center justify-between text-sm text-blue-100/90">
-          <span>{price}</span>
-          <span className="flex items-center gap-1 text-xs font-medium text-blue-300">
+        <h3 className="text-lg font-semibold leading-tight text-gray-900 dark:text-white">{name}</h3>
+        <div className="flex items-center justify-between text-sm">
+          <span className="text-gray-900 dark:text-white font-semibold">{price}</span>
+          <span className="flex items-center gap-1 text-xs font-medium text-orange-600 dark:text-orange-400">
             3D preview
-            <span aria-hidden className="inline-flex size-2 rounded-full bg-blue-400" />
+            <span aria-hidden className="inline-flex size-2 rounded-full bg-orange-500 dark:bg-orange-400" />
           </span>
         </div>
       </div>

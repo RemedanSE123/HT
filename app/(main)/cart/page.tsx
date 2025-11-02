@@ -93,11 +93,11 @@ export default function CartPage() {
   };
 
   const proceedToNextStep = () => {
-    setCheckoutStep((current) => Math.min(3, (current + 1) as CheckoutStep));
+    setCheckoutStep((current) => Math.min(3, current + 1) as CheckoutStep);
   };
 
   const goToPreviousStep = () => {
-    setCheckoutStep((current) => Math.max(1, (current - 1) as CheckoutStep));
+    setCheckoutStep((current) => Math.max(1, current - 1) as CheckoutStep);
   };
 
   return (

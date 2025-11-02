@@ -47,12 +47,19 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.45, 
+      ease: [0.42, 0, 0.58, 1] as const 
+    } 
+  },
 };
 
 export function NewArrivals() {
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl dark:bg-zinc-950/60">
+    <section className="rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 md:p-6 shadow-lg dark:shadow-gray-900/50">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
@@ -69,15 +76,15 @@ export function NewArrivals() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+        className="grid grid-cols-2 gap-4 md:gap-5 md:grid-cols-2 xl:grid-cols-3"
       >
         {arrivals.map(({ title, description, image }) => (
           <motion.article
             key={title}
             variants={item}
-            className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/60 via-white/10 to-white/5 shadow-lg transition hover:border-blue-400/40 hover:shadow-blue-500/20 dark:from-zinc-900/80 dark:via-zinc-900/40 dark:to-zinc-900/30"
+            className="group relative flex h-full flex-col overflow-hidden rounded-xl md:rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all hover:border-orange-500 dark:hover:border-orange-500"
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-32 md:h-48 overflow-hidden">
               <Image
                 src={image}
                 alt={title}
@@ -87,19 +94,19 @@ export function NewArrivals() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-75" />
             </div>
-            <div className="relative flex flex-1 flex-col gap-3 p-5">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-500/70">
+            <div className="relative flex flex-1 flex-col gap-2 md:gap-3 p-3 md:p-5">
+              <span className="text-xs font-semibold uppercase tracking-wide text-orange-600 dark:text-orange-400">
                 Fresh drop
               </span>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
+              <h3 className="text-sm md:text-lg font-semibold text-gray-900 dark:text-white line-clamp-2">
                 {title}
               </h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-300">
+              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
                 {description}
               </p>
-              <div className="mt-auto flex items-center justify-between text-xs font-medium text-blue-500">
-                <span>View immersive preview</span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 px-3 py-1 text-blue-200">
+              <div className="mt-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-xs font-medium text-orange-600 dark:text-orange-400">
+                <span className="hidden md:inline">View immersive preview</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-orange-100 dark:bg-orange-900/30 px-2 md:px-3 py-1 text-orange-700 dark:text-orange-300 text-xs">
                   Ready to ship
                 </span>
               </div>

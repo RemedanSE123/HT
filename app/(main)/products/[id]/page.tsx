@@ -6,7 +6,6 @@ import {
   ArrowRight,
   Box,
   Check,
-  Cube,
   Gauge,
   PackageCheck,
   Ruler,
@@ -141,7 +140,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
                   <div className="absolute left-6 top-6 flex items-center gap-2">
                     <Badge variant="secondary" className="rounded-full bg-background/80 text-xs font-medium">
-                      <Cube className="mr-1 size-3.5" /> 360° studio set
+                      <Box className="mr-1 size-3.5" /> 360° studio set
                     </Badge>
                     <Badge variant="outline" className="rounded-full border-white/30 bg-black/40 text-white">
                       {product.category}
@@ -201,7 +200,7 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                     </p>
                   </div>
                   <Button type="button" variant="secondary" size="sm" className="rounded-full">
-                    <Cube className="mr-2 size-4" /> Launch AR Try-On
+                    <Box className="mr-2 size-4" /> Launch AR Try-On
                   </Button>
                 </div>
               </div>

@@ -2,118 +2,132 @@
 
 import { motion } from "framer-motion";
 import {
-  Armchair,
-  BatteryCharging,
-  CloudSun,
-  Cpu,
-  Dumbbell,
-  HeartPulse,
+  Smartphone,
   Shirt,
-  WandSparkles,
+  Home,
+  Dumbbell,
+  Gamepad2,
+  Book,
+  Camera,
+  Heart,
+  Laptop,
+  Headphones,
+  Watch
 } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const categories = [
   {
-    name: "Smart Living",
-    description: "Connected homes & automation",
-    icon: Cpu,
-    href: "/categories?focus=smart-home",
+    name: "Electronics",
+    // description: "Smartphones, Laptops & More",
+    icon: Smartphone,
+    href: "/products?category=electronics",
+    color: "from-blue-500 to-cyan-500",
+    bgColor: "bg-blue-50 dark:bg-blue-950/20"
   },
   {
-    name: "Future Fashion",
-    description: "Adaptive wearables",
+    name: "Fashion",
+    // description: "Clothing & Accessories",
     icon: Shirt,
-    href: "/categories?focus=fashion",
+    href: "/products?category=fashion",
+    color: "from-pink-500 to-rose-500",
+    bgColor: "bg-pink-50 dark:bg-pink-950/20"
   },
   {
-    name: "Wellness Tech",
-    description: "Bio-synced health",
-    icon: HeartPulse,
-    href: "/categories?focus=wellness",
+    name: "Home ",
+    // description: "Furniture & Decor",
+    icon: Home,
+    href: "/products?category=home",
+    color: "from-green-500 to-emerald-500",
+    bgColor: "bg-green-50 dark:bg-green-950/20"
   },
   {
-    name: "Sustainable Energy",
-    description: "Solar & smart grids",
-    icon: BatteryCharging,
-    href: "/categories?focus=energy",
-  },
-  {
-    name: "Avant-Garde Decor",
-    description: "Luxury interior stories",
-    icon: Armchair,
-    href: "/categories?focus=decor",
-  },
-  {
-    name: "AI Personal Care",
-    description: "Adaptive beauty labs",
-    icon: WandSparkles,
-    href: "/categories?focus=beauty",
-  },
-  {
-    name: "Outdoor Resilience",
-    description: "Climate-smart gear",
-    icon: CloudSun,
-    href: "/categories?focus=outdoor",
-  },
-  {
-    name: "Performance Fitness",
-    description: "Biometric training",
+    name: "Sports ",
+    // description: "Equipment & Gear",
     icon: Dumbbell,
-    href: "/categories?focus=fitness",
+    href: "/products?category=sports",
+    color: "from-orange-500 to-red-500",
+    bgColor: "bg-orange-50 dark:bg-orange-950/20"
   },
+  {
+    name: "Gaming",
+    // description: "Consoles & Accessories",
+    icon: Gamepad2,
+    href: "/products?category=gaming",
+    color: "from-purple-500 to-violet-500",
+    bgColor: "bg-purple-50 dark:bg-purple-950/20"
+  },
+  {
+    name: "Books",
+    // description: "All Genres Available",
+    icon: Book,
+    href: "/products?category=books",
+    color: "from-yellow-500 to-amber-500",
+    bgColor: "bg-yellow-50 dark:bg-yellow-950/20"
+  },
+  {
+    name: "Photography",
+    // description: "Cameras & Lenses",
+    icon: Camera,
+    href: "/products?category=photography",
+    color: "from-indigo-500 to-blue-500",
+    bgColor: "bg-indigo-50 dark:bg-indigo-950/20"
+  },
+  {
+    name: "Health ",
+    // description: "Personal Care",
+    icon: Heart,
+    href: "/products?category=beauty",
+    color: "from-rose-500 to-pink-500",
+    bgColor: "bg-rose-50 dark:bg-rose-950/20"
+  }
 ];
 
 export function CategoryQuickIcons() {
   return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl dark:bg-zinc-950/60">
-      <div className="mb-6 flex items-center justify-between">
-        <div>
-          <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
-            Category quick jump
+    <section className="w-full py-8 md:py-12">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+        <div className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+            Shop by Category
           </h2>
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-            Navigate to curated universes across commerce verticals.
+          <p className="text-gray-600 dark:text-gray-400">
+            Browse our wide range of product categories
           </p>
         </div>
-      </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {categories.map(({ name, description, icon: Icon, href }, index) => (
-          <motion.div
-            key={name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-          >
-            <Link
-              href={href}
-              className="group relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-gradient-to-br from-white/40 via-white/10 to-white/5 p-5 text-left shadow-lg transition hover:border-blue-400/50 hover:shadow-blue-500/20 dark:from-zinc-900/80 dark:via-zinc-900/40 dark:to-zinc-900/30"
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-4">
+          {categories.map(({ name,  icon: Icon, href, color, bgColor }, index) => (
+            <motion.div
+              key={name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
             >
-              <span className="absolute inset-0 rounded-2xl border border-white/20 opacity-0 transition group-hover:opacity-100 dark:border-blue-500/20" />
-              <div className="relative flex items-center justify-between">
-                <span className="text-sm font-medium uppercase tracking-[0.2em] text-blue-500/70">
-                  {index + 1 < 10 ? `0${index + 1}` : index + 1}
-                </span>
-                <span className="rounded-full bg-white/20 p-3 text-blue-600 shadow-inner shadow-white/30 transition group-hover:bg-blue-500/20 group-hover:text-white dark:bg-blue-500/10 dark:text-blue-200">
-                  <Icon className="size-5" aria-hidden />
-                </span>
-              </div>
-              <div className="relative space-y-1">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
-                  {name}
-                </h3>
-                <p className="text-sm text-zinc-600 transition group-hover:text-blue-500 dark:text-zinc-300 dark:group-hover:text-blue-300">
-                  {description}
-                </p>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+              <Link
+                href={href}
+                className="group relative flex flex-col items-center gap-3 p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-300 hover:shadow-lg"
+              >
+                <div className={cn(
+                  "p-3 rounded-xl bg-gradient-to-br transition-all duration-300 group-hover:scale-110",
+                  color,
+                  "text-white"
+                )}>
+                  <Icon className="size-6" />
+                </div>
+                <div className="text-center">
+                  <h3 className="font-semibold text-sm text-gray-900 dark:text-white mb-1 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                    {name}
+                  </h3>
+               
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-
